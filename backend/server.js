@@ -22,7 +22,9 @@ app.get("/protected",authMiddleware,(req,res)=>{
     res.send("Access Granted");
 });
 
-
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 
 
