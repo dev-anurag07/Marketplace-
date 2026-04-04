@@ -31,7 +31,7 @@ const Register =()=>{
 
     const handleRegister = async()=>{
         try{
-            await axios.post("http://localhost:8000/api/users/register",{...formData,role,})
+            await axios.post("https://marketplace-localserviceprovider.onrender.com/api/users/register",{...formData,role,})
             alert("Register successfully");
             navigate('/');
 
