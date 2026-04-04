@@ -36,7 +36,7 @@ const Dashboard = () => {
     const submitReview=async()=>{
         try{
             const token =localStorage.getItem('token');
-            await axios.put(`http://localhost:8000/api/bookings/review/${selectedBooking}`
+            await axios.put(`https://marketplace-localserviceprovider.onrender.com/api/bookings/review/${selectedBooking}`
                 ,reviewData,{headers:{Authorization:`Bearer ${token}`}})
                   alert("review added successfully")
 
@@ -59,7 +59,7 @@ const Dashboard = () => {
     try{
         const token = localStorage.getItem('token');
 
-        await axios.post("http://localhost:8000/api/bookings/create",
+        await axios.post("https://marketplace-localserviceprovider.onrender.com/api/bookings/create",
             {serviceId:selectedService,
                 date:formData.date,
                 time:formData.time,
@@ -91,7 +91,7 @@ const Dashboard = () => {
         try{
             const token = localStorage.getItem('token');
 
-            await axios.put(`http://localhost:8000/api/bookings/accept/${id}`,{},
+            await axios.put(`https://marketplace-localserviceprovider.onrender.com/api/bookings/accept/${id}`,{},
                 {headers:{Authorization:`Bearer ${token}`}})
 
                 fetchProviderBookings();
@@ -106,7 +106,7 @@ const Dashboard = () => {
     const rejectBooking=async(id)=>{
         try{
       const token = localStorage.getItem('token');
-       await axios.put(`http://localhost:8000/api/bookings/reject/${id}`,{},
+       await axios.put(`https://marketplace-localserviceprovider.onrender.com/api/bookings/reject/${id}`,{},
         {headers:{Authorization:`Bearer ${token}`}})
 
         fetchProviderBookings();
@@ -121,7 +121,7 @@ const Dashboard = () => {
     const completeBooking=async(id)=>{
         try{
             const token = localStorage.getItem('token');
-await axios.put(`http://localhost:8000/api/bookings/complete/${id}`,{},
+await axios.put(`https://marketplace-localserviceprovider.onrender.com/api/bookings/complete/${id}`,{},
         {headers:{Authorization:`Bearer ${token}`}})
   fetchProviderBookings();
         }
@@ -138,7 +138,7 @@ const fetchProviderBookings = async()=>{
     try{
         const token = localStorage.getItem('token');
 
-        const res= await axios.get("http://localhost:8000/api/bookings/provider",
+        const res= await axios.get("https://marketplace-localserviceprovider.onrender.com/api/bookings/provider",
             {headers:{Authorization:`Bearer ${token}`}})
 
             setbookings(res.data);
@@ -155,7 +155,7 @@ const fetchProviderBookings = async()=>{
         try{
             const token = localStorage.getItem('token');
 
-            const res =await axios.get("http://localhost:8000/api/bookings/customer",
+            const res =await axios.get("https://marketplace-localserviceprovider.onrender.com/api/bookings/customer",
                 {headers:{Authorization: `Bearer ${token}`}});
                
                 setbookings(res.data);
@@ -173,7 +173,7 @@ const fetchProviderBookings = async()=>{
         try{
             const token = localStorage.getItem('token');
 
-            await axios.put(`http://localhost:8000/api/bookings/cancel/${id}`,{},
+            await axios.put(`https://marketplace-localserviceprovider.onrender.com/api/bookings/cancel/${id}`,{},
                 {headers:{Authorization :`Bearer ${token}`}})
                 fetchBookings();
                 alert ("Booking Cancelled");
@@ -191,7 +191,7 @@ const fetchProviderBookings = async()=>{
         try{
             const token = localStorage.getItem("token");
 
-           const res= await axios.post("http://localhost:8000/api/bookings/create",{
+           const res= await axios.post("https://marketplace-localserviceprovider.onrender.com/api/bookings/create",{
                 serviceId:id },{headers:{Authorization: `Bearer ${token}`}}
 
             );
@@ -206,7 +206,7 @@ const fetchProviderBookings = async()=>{
 
 const fetchServices= async()=>{
     try{
-        const res = await axios.get("http://localhost:8000/api/services/all");
+        const res = await axios.get("https://marketplace-localserviceprovider.onrender.com/api/services/all");
         setservices(res.data);
     }
     catch(error){
@@ -217,7 +217,7 @@ const handleAddservice=async()=>{
     try{
         const token =localStorage.getItem('token');
 
-        await axios.post("http://localhost:8000/api/services/add",serviceData,{headers:{Authorization:`Bearer ${token}`}})
+        await axios.post("https://marketplace-localserviceprovider.onrender.com/api/services/add",serviceData,{headers:{Authorization:`Bearer ${token}`}})
         alert("service added successfully");
 
         setserviceData({
