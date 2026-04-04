@@ -14,7 +14,7 @@ const Login = () => {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:8000/api/users/login", {
+      const res = await axios.post("https://marketplace-localserviceprovider.onrender.com/api/users/login", {
         email, password
       });
 
